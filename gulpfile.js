@@ -132,7 +132,7 @@ gulp.task('tests:scripts', function () {
   var tests = gulp.src(['tests/*.js'], {read: false});
   return gulp.src('tests/index.html')
     .pipe(inject(tests))
-    .pipe(gulp.dest('.'))
+    .pipe(gulp.dest('tests'))
     .pipe(browserSync.reload({stream: true}));
 });
 
@@ -142,7 +142,8 @@ gulp.task('browserSync', function() {
       baseDir: ['.tmp', 'app'],
       routes: {
         '/bower_components': 'bower_components',
-        '.': 'tests'
+        '/tests': 'tests'
+
       }
     },
   });

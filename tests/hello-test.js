@@ -5,9 +5,3 @@ describe("delete me", function(){
     expect(true).to.equal(true);
   });
 });
-
-describe("Test", function(){
-  it("should return true", function(){
-    expect(true).to.equal(true);
-  });
-});
