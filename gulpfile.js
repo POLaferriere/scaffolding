@@ -88,7 +88,8 @@ gulp.task('images', function(){
 });
 
 gulp.task('fonts', function() {
-  return gulp.src('app/fonts/**/*')
+  return gulp.src(['app/fonts/**/*', 'bower_components/font-awesome/fonts/*.+(eot|svg|ttf|woff|woff2|otf)'])
+  .pipe(gulp.dest('.tmp/fonts'))
   .pipe(gulp.dest('dist/fonts'))
 });
 
@@ -187,7 +188,7 @@ gulp.task('deploy', function() {
 });
 
 gulp.task('default', function (callback) {
-  runSequence(['styles', 'scripts', 'templates', 'wiredep', 'wiredep:tests', 'tests:scripts', 'browserSync', 'watch'], callback);
+  runSequence(['styles', 'fonts', 'scripts', 'templates', 'wiredep', 'wiredep:tests', 'tests:scripts', 'browserSync', 'watch'], callback);
 });
 
 function onError(error){
